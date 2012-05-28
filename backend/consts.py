@@ -9,11 +9,10 @@ reserved = { 'int'           : 'INTEGRATE',
 			 'derivative'    : 'DIFFERENTIATE' }
 
 tokens = ( 'NUM',
-           'ID',
+           'VAR',
+           'FUNC',
 		   'LPAREN',
 		   'RPAREN' ) + tuple(set(reserved.values()))
-
-mathexpr = 'MATHEXPR'
 
 sage_consts = ('pi',
                'e',
