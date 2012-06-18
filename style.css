@@ -1,7 +1,7 @@
 * {
 margin:               0;
 padding:              0;
-font:                 sans-serif;
+font-family:          sans-serif;
 }
 
 html, body {
@@ -141,6 +141,71 @@ border-radius:        3px;
 padding:              8px 0 0 8px;
 font-size:            1.1em;
 color:                black;
+}
+
+dl.ex {
+color:                black;
+}
+
+dl.ex dt:first-of-type {
+margin-top:           0;
+border-top:           0;
+padding-top:          0;
+}
+
+dl.ex dt {
+padding-top:          8px;
+}
+
+a.exbox {
+color:                #666666;
+line-height:          1.4em;
+font-size:            0.8em;
+display:              block;
+border:               2px solid #b0b0b0;
+margin:               3px 0;
+padding:              3px;
+-webkit-border-radius:3px;
+-moz-border-radius:   3px;
+-o-border-radius:     3px;
+border-radius:        3px;
+-webkit-transition:   box-shadow .1s ease,
+                      color .1s ease,
+					  border-color .1s ease;
+-moz-transition:      box-shadow .1s ease,
+                      color .1s ease,
+					  border-color .1s ease;
+-o-transition:        box-shadow .1s ease,
+                      color .1s ease,
+					  border-color .1s ease;
+transition:           box-shadow .1s ease,
+                      color .1s ease,
+					  border-color .1s ease;
+}
+
+a.exbox:hover {
+color:                black;
+border-color:         #909090;
+-webkit-box-shadow:   #b0b0b0 0 0 3px;
+-moz-box-shadow:      #b0b0b0 0 0 3px;
+-o-box-shadow:        #b0b0b0 0 0 3px;
+box-shadow:           #b0b0b0 0 0 3px;
+}
+
+a.exbox:after {
+display:              block;
+float:                right;
+padding:              2px 3px;
+content:              "Solve";
+background:           #4444ee;
+color:                white;
+font-weight:          bold;
+font-size:            0.8em;
+line-height:          1.35em;
+-webkit-border-radius:3px;
+-moz-border-radius:   3px;
+-o-border-radius:     3px;
+border-radius:        3px;
 }
 
 .inline { display: inline }

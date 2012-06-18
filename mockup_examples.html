@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<title>Dr. Math - Test</title>
+	<meta name="author" content="Muhammed Uluyol" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#qbox").focus();
+	});
+	</script>
+</head>
+<body>
+	<div id="header"></div>
+	<div id="results_ctr">
+		<h2 class="inline">Dr. Math</h2>
+		<form class="inblck" action="#">
+			<input id="qbox" type="text" name="q" />
+			<input class="btn" type="submit" value="Solve" />
+		</form>
+		<div id="results_box">
+			<dl class="ex">
+				<dt>Derivatives</dt>
+					<dd><a href="#" class="exbox">d/dx x^2</a></dd>
+				<dt>Antiderivatives</dt>
+					<dd><a href="#" class="exbox">int x^2</a></dd>
+				<dt>Arithmetic</dt>
+					<dd><a href="#" class="exbox">5 + 5</a></dd>
+
+			</dl>
+		</div>
+	</div>
+</body>
