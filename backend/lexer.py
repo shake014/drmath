@@ -1,5 +1,6 @@
 import ply.lex as lex
 import consts
+import sage.all
 
 class MathLexer:
 
@@ -33,7 +34,7 @@ class MathLexer:
 	# Almost everything comes here
 	# We throw away ignore's
 	# We need to separate consts/vars, which we treat as NUMBERs
-	# Reserved keywords have to be identified and turned proper (eg int -> integrate)
+	# Reserved keywords have to be identified
 	def t_FUNC(self, t):
 		r'([_A-Za-z])+'
 		t.value = str.lower(t.value)
@@ -56,7 +57,7 @@ class MathLexer:
 		t.lexer.skip(1)
 
 	def build(self, **kwargs):
-		self.lexer = lex.lex(object=self, **kwargs)
+		self.lexer = lex.lex(module=self, **kwargs)
 
 	def input(self, data):
 		self.lexer.input(data)
