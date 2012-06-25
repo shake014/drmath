@@ -10,7 +10,7 @@ def incr_count(dic, key):
 	else:
 		dic[key] = 1
 
-class MathParser():
+class MathSolver():
 
 	def __init__(self):
 		self.tokens = consts.tokens
