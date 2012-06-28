@@ -1,0 +1,24 @@
+$def with (q, sol)
+<!doctype html>
+<html>
+<head>
+	<title>Dr. Math - Results</title>
+	<meta name="author" content="Muhammed Uluyol" />
+	<link rel="stylesheet" type="text/css" href="static/style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/jsMath/easy/load.js"></script>
+</head>
+<body>
+	<div id="header"></div>
+	<div id="results_ctr">
+		<h2 class="inline">Dr. Math</h2>
+		<form class="inblck" action="/" method="get">
+			<input id="qbox" type="text" name="q" value="$q"/>
+			<input class="btn" type="submit" value="Solve" />
+		</form>
+		<div id="results_box">
+			<div id="qshow" class="smallbox"><strong>Showing results</strong> for $q</div>
+			<div class="result">$:sol</div>
+		</div>
+	</div>
+</body>

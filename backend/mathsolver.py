@@ -15,24 +15,25 @@ class MathSolver():
 	def __init__(self):
 		self.tokens = consts.tokens
 		self.var_c = {}
-		precedence = ( ('left', '+', '-'),
-		               ('left', '*', '/') )
+		precedence = (('left', '+', '-'),
+		              ('left', '*', '/'),
+			      ('left', '^'))
 
 	def p_statement_expression(self, p):
 		'statement : expression'
 		p[0] = p[1]
 
 	def p_expression_differentiate(self, p):
-		'expression : DIFFERENTIATE expression'
+		'mathexpr : DIFFERENTIATE mathexpr'
 		if p[1] == 'differentiate':
-			p[0] = 'diff(' + p[2] + ',' + '@VAR@' + ')'
+			p[0] = 'diff(' + p[2] + ',' + '@VAR@' + ').simplify()'
 		else:
-			p[0] = 'diff(' + p[2] + ',' + p[1][3] + ')'
+			p[0] = 'diff(' + p[2] + ',' + p[1][3] + ').simplify()'
 			incr_count(self.var_c, p[1][3])
 
 	def p_expression_integrate(self, p):
-		'expression : INTEGRATE expression'
-		p[0] = 'integrate(' + p[2] + ',' + '@VAR@' + ')'
+		'mathexpr : INTEGRATE mathexpr'
+		p[0] = 'integrate(' + p[2] + ',' + '@VAR@' + ').simplify()'
 
 	def p_expression_mathexpr(self, p):
 		'expression : mathexpr'
@@ -67,7 +68,8 @@ class MathSolver():
 		   mathexpr : mathexpr "*" mathexpr
 		   mathexpr : mathexpr "/" mathexpr
 		   mathexpr : mathexpr "+" mathexpr
-		   mathexpr : mathexpr "-" mathexpr'''
+		   mathexpr : mathexpr "-" mathexpr
+		   mathexpr : mathexpr "^" mathexpr'''
 		p[0] = p[1] + p[2] + p[3]
 
 	def p_mathexpr_num(self, p):
@@ -104,6 +106,7 @@ class MathSolver():
 				cerror = True
 		if guessvar == None:
 			guessvar = 'x'
+			incr_count(self.var_c, 'x')
 		elif cerror:
 			for v in ('x', 't', 'y', 'z'):
 				if v in self.var_c:
@@ -114,4 +117,5 @@ class MathSolver():
 		s_vars = {}
 		for _x_ in self.var_c.keys():
 			s_vars[_x_] = sage.all.var(_x_)
-		return sage_eval(result, locals=s_vars)
+		solution = sage_eval(result, locals=s_vars)
+		return latex(solution)
