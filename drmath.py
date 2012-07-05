@@ -1,6 +1,6 @@
 #!/usr/bin/env sage -python
 
-#  Copyright (c) 2012 Muhammed Uluyol
+#  Copyright (c) 2012 Muhammed Uluyol, Sammy Shaker
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to
